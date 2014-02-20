@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @client_ip = request.remote_ip
+    @hosts = Host.all
   end
 end

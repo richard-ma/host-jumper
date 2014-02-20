@@ -1,7 +1,23 @@
-<h2>Welcome</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
-<p>
-  Your IP address: <%= @client_ip %>
-</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Path</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hosts.each do |host| %>
+      <% path = 'http://' + host.ip %>
+      <% if host.port? %>
+        <% path = path + ':' + host.port %>
+      <% end %>
+      <% path = path + host.suffix %>
+      <tr>
+        <td><%= host.name %></td>
+        <td><a href="<%= path %>"><%= path %></a></td>
+        <td><%= host.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
