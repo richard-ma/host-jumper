@@ -1,5 +1,5 @@
 class Host < ActiveRecord::Base
-  OFFLINE_DELTA = 180 
+  OFFLINE_DELTA = 540 
 
   # format host access url
   def path
