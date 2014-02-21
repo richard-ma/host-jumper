@@ -1,4 +1,5 @@
 class HostsController < ApplicationController
+  before_filter :authenticate_admin!
   before_action :set_host, only: [:show, :edit, :update, :destroy]
 
   # GET /hosts
