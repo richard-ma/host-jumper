@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class HostsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @host = hosts(:one)
   end
@@ -18,7 +20,7 @@ class HostsControllerTest < ActionController::TestCase
 
   test "should create host" do
     assert_difference('Host.count') do
-      post :create, host: { ip: @host.ip, name: @host.name, port: @host.port, status: @host.status, suffix: @host.suffix, token: @host.token }
+      post :create, host: { ip: @host.ip, name: @host.name, port: @host.port, suffix: @host.suffix, token: @host.token }
     end
 
     assert_redirected_to host_path(assigns(:host))
@@ -35,7 +37,7 @@ class HostsControllerTest < ActionController::TestCase
   end
 
   test "should update host" do
-    patch :update, id: @host, host: { ip: @host.ip, name: @host.name, port: @host.port, status: @host.status, suffix: @host.suffix, token: @host.token }
+    patch :update, id: @host, host: { ip: @host.ip, name: @host.name, port: @host.port, suffix: @host.suffix, token: @host.token }
     assert_redirected_to host_path(assigns(:host))
   end
 
