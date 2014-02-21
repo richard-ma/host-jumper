@@ -8,14 +8,9 @@
   </thead>
   <tbody>
     <% @hosts.each do |host| %>
-      <% path = 'http://' + host.ip %>
-      <% if host.port? %>
-        <% path = path + ':' + host.port %>
-      <% end %>
-      <% path = path + host.suffix %>
       <tr>
         <td><%= host.name %></td>
-        <td><a href="<%= path %>"><%= path %></a></td>
+        <td><a href="<%= host.path %>"><%= host.path %></a></td>
         <td><%= host.status %></td>
       </tr>
     <% end %>
