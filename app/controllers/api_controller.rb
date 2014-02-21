@@ -5,12 +5,9 @@ class ApiController < ApplicationController
   # GET /api/heartbeat/:id/:token.json
   def heartbeat
     @host.ip = request.remote_ip
+    @host.updated_at = Time.now.to_time
 
-    if @host.token == params[:token] and @host.save
-      @ret = @host.ip
-    else
-      @ret = 'false'
-    end
+    @ret = (@host.token == params[:token] && @host.save) ? @host.ip : 'false'
   end
 
   private

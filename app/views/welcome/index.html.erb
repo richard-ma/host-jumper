@@ -8,10 +8,10 @@
   </thead>
   <tbody>
     <% @hosts.each do |host| %>
-      <tr>
+      <tr class="<% if !host.online? %>danger<% end %>">
         <td><%= host.name %></td>
         <td><a href="<%= host.path %>"><%= host.path %></a></td>
-        <td><%= host.status %></td>
+        <td><%= host.online? ? 'Online' : 'Offline'%></td>
       </tr>
     <% end %>
   </tbody>
