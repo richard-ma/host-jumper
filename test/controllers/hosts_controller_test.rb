@@ -6,6 +6,36 @@ class HostsControllerTest < ActionController::TestCase
     @host = hosts(:one)
   end
 
+  test "not authenticated should get redirect" do
+    # index
+    get :index
+    assert_response :redirect, 'get index page failed to redirect'
+
+    # new
+    get :new
+    assert_response :redirect, 'get new page failed to redirect'
+
+    # create
+    post :create, host: { ip: @host.ip, name: @host.name, port: @host.port, suffix: @host.suffix, token: @host.token }
+    assert_response :redirect, 'get create page failed to redirect'
+
+    # show
+    get :show, id: @host
+    assert_response :redirect, 'get show page failed to redirect'
+
+    # edit
+    get :edit, id: @host
+    assert_response :redirect, 'get edit page failed to redirect'
+
+    # update
+    patch :update, id: @host, host: { ip: @host.ip, name: @host.name, port: @host.port, suffix: @host.suffix, token: @host.token }
+    assert_response :redirect, 'get update page failed to redirect'
+
+    # delete
+    delete :destroy, id: @host
+    assert_response :redirect, 'get destroy page failed to redirect'
+  end
+
   test "should get index" do
     sign_in admins(:admin)
 
