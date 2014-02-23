@@ -1,17 +1,19 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Path</th>
-      <th>Status</th>
+      <th>Last Updated At</th>
     </tr>
   </thead>
   <tbody>
     <% @hosts.each do |host| %>
       <tr class="<% if !host.online? %>danger<% end %>">
+        <td><span class="label <% if !host.online? %>label-danger<% else %>label-success<% end %>"><%= host.status %></span></td>
         <td><%= host.name %></td>
         <td><a href="<%= host.path %>"><%= host.path %></a></td>
-        <td><%= host.online? ? 'Online' : 'Offline'%></td>
+        <td><%= time_ago_in_words(host.updated_at)%> ago</td>
       </tr>
     <% end %>
   </tbody>

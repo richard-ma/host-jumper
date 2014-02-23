@@ -9,4 +9,8 @@ class Host < ActiveRecord::Base
   def online?
     Time.now.to_i - updated_at.to_i <= OFFLINE_DELTA
   end
+
+  def status
+    self.online? ? 'Online' : 'Offline'
+  end
 end
