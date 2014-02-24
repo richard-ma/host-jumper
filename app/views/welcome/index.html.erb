@@ -1,11 +1,11 @@
 <% @hosts.each do |host| %>
-<div class="col-xs-6 col-md-4">
+<div class="col-xs-3 col-md-2">
   <div class="well">
     <p class="text-center">
       <%= host.name %>
     </p>
     <p class="text-center">
-    <a href="<%= host.path %>"><img class="img-rounded" src="https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl=<%= host.path %>" alt="QR Code" /></a>
+      <a href="<%= host.path %>"><img class="img-rounded" src="https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl=<%= host.path %>" alt="QR Code" /></a>
     </p>
     <p class="text-center">
       <span class="label <% if !host.online? %>label-danger<% else %>label-success<% end %>"><%= host.status %></span>
