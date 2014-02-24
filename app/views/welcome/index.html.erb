@@ -1,20 +1,18 @@
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Path</th>
-      <th>Last Updated At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @hosts.each do |host| %>
-      <tr class="<% if !host.online? %>danger<% end %>">
-        <td><span class="label <% if !host.online? %>label-danger<% else %>label-success<% end %>"><%= host.status %></span></td>
-        <td><%= host.name %></td>
-        <td><a href="<%= host.path %>"><%= host.path %></a></td>
-        <td><%= time_ago_in_words(host.updated_at)%> ago</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @hosts.each do |host| %>
+<div class="col-xs-6 col-md-4">
+  <div class="well">
+    <p class="text-center">
+      <%= host.name %>
+    </p>
+    <p class="text-center">
+    <a href="<%= host.path %>"><img class="img-rounded" src="https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl=<%= host.path %>" alt="QR Code" /></a>
+    </p>
+    <p class="text-center">
+      <span class="label <% if !host.online? %>label-danger<% else %>label-success<% end %>"><%= host.status %></span>
+    </p>
+    <p class="text-center">
+      Last updated at <%= time_ago_in_words(host.updated_at)%> ago.
+    </p>
+  </div>
+</div>
+<% end %>
