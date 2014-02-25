@@ -5,7 +5,9 @@
       <%= host.name %>
     </p>
     <p class="text-center">
-      <a href="<%= host.path %>"><img class="img-rounded" src="https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl=<%= host.path %>" alt="QR Code" /></a>
+      <a href="<%= host.path %>">
+        <%= image_tag "https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl=#{host.path}",  alt: "QR Code", :class => "img-rounded img-cover" %>
+      </a>
     </p>
     <p class="text-center">
       <span class="label <% if !host.online? %>label-danger<% else %>label-success<% end %>"><%= host.status %></span>
