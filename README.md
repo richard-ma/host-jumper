@@ -1,1 +1,1 @@
-#host-jumper
+# host-jumper# 系统需求* postgresql >= 9.1* rails >= 4.0# 安装## 安装gem包    $ bundle## 导入数据库    $ rake db:create    $ rake db:migrate    $ rake db:schema:load
