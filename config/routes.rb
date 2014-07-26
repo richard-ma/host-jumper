@@ -1,5 +1,6 @@
 HostJumper::Application.routes.draw do
   devise_for :admins
+
   resources :hosts
 
   get 'api/heartbeat/:id/:token' => 'api#heartbeat'
