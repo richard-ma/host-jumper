@@ -11,6 +11,7 @@
 
   <% if devise_mapping.rememberable? -%>
     <div>
+      <%# TODO 使用一行显示checkbox和它的label %>
       <%= f.check_box :remember_me, :class => "checkbox" %>
       <%= f.label :remember_me %>
     </div>
