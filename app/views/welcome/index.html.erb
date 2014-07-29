@@ -4,6 +4,20 @@
     <p class="text-center">
       <%= host.name %>
     </p>
+
+    <%# Admin Control Panel %>
+    <% if admin_signed_in? %>
+    <p class="text-center">
+      <%= link_to edit_host_path(host.id), :class => "btn btn-default btn-xs" do %>
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      <% end %>
+
+      <%= link_to host_path(host.id), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-xs" do %>
+        <span class="glyphicon glyphicon-remove"></span> Remove
+      <% end %>
+    </p>
+    <% end %>
+
     <p class="text-center">
       <a href="<%= host.path %>">
         <%= image_tag "https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl=#{host.path}",  alt: "QR Code", :class => "img-rounded img-cover" %>
@@ -13,7 +27,8 @@
       <span class="label <% if !host.online? %>label-danger<% else %>label-success<% end %>"><%= host.status %></span>
     </p>
     <p class="text-center">
-      Last updated at <%= time_ago_in_words(host.updated_at)%> ago.
+      Last updated at <br />
+      <%= time_ago_in_words(host.updated_at)%> ago.
     </p>
   </div>
 </div>
