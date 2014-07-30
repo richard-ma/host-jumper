@@ -18,6 +18,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'turbolinks'
 
+gem 'figaro' # Custom Settings
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
