@@ -1,1 +1,1 @@
-# host-jumper# 系统需求* postgresql >= 9.1* rails >= 4.0# 安装## 安装gem包    $ bundle## 导入数据库    $ rake db:create    $ rake db:migrate    $ rake db:schema:load
+# host-jumper# 系统需求* postgresql >= 9.1* rails >= 4.0# 安装## 安装gem包    $ bundle## 导入数据库    $ rake db:create    $ rake db:migrate    $ rake db:schema:load# 使用说明## 心跳间隔* 为防止服务器负载过重，最小心跳间隔为120秒* 如在最小心跳间隔内发送心跳请求，则会获得404错误* 通过调整`/config/application.yml`中的`MIN_HEARTBEAT_INTERVAL`参数来修改最小心跳间隔
