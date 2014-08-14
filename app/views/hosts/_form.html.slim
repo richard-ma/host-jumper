@@ -1,0 +1,31 @@
+= form_for(@host) do |f|
+  - if @host.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@host.errors.count, "error")
+        | prohibited this host from being saved:
+      ul
+        - @host.errors.full_messages.each do |msg|
+          li= msg
+  .field
+    = f.label :name
+    br/
+    = f.text_field :name
+  .field
+    = f.label :ip
+    br/
+    = f.text_field :ip
+  .field
+    = f.label :port
+    br/
+    = f.number_field :port
+  .field
+    = f.label :suffix
+    br/
+    = f.text_field :suffix
+  .field
+    = f.label :token
+    br/
+    = f.text_field :token
+  .actions
+    = f.submit

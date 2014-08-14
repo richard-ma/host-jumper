@@ -1,0 +1,19 @@
+p#notice= notice
+p
+  strong Name:
+  = @host.name
+p
+  strong Ip:
+  = @host.ip
+p
+  strong Port:
+  = @host.port
+p
+  strong Suffix:
+  = @host.suffix
+p
+  strong Token:
+  = @host.token
+= link_to 'Edit', edit_host_path(@host)
+| \
+| \#{link_to 'Back', hosts_path}
